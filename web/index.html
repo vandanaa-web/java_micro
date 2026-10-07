@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haunted Mansion Escape</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1>🏰 HAUNTED MANSION ESCAPE</h1>
+            <p class="subtitle">Can you escape the mansion before time runs out?</p>
+        </header>
+
+        <!-- Main Content Grid -->
+        <div class="main-grid">
+            <!-- Navigation & Actions Control Panel (West) -->
+            <aside class="controls-panel">
+                <div class="panel-section">
+                    <h3>Navigation</h3>
+                    <div class="dpad">
+                        <div></div>
+                        <button id="btnNorth" class="btn btn-nav">North</button>
+                        <div></div>
+                        <button id="btnWest" class="btn btn-nav">West</button>
+                        <div class="dpad-center"></div>
+                        <button id="btnEast" class="btn btn-nav">East</button>
+                        <div></div>
+                        <button id="btnSouth" class="btn btn-nav">South</button>
+                        <div></div>
+                    </div>
+                </div>
+
+                <div class="panel-section">
+                    <h3>Actions</h3>
+                    <div class="action-buttons">
+                        <button id="btnLook" class="btn btn-action">Look</button>
+                        <button id="btnTake" class="btn btn-action">Take Item...</button>
+                        <button id="btnRead" class="btn btn-action">Read Item...</button>
+                        <button id="btnHint" class="btn btn-action">Hint</button>
+                        <button id="btnHelp" class="btn btn-action">Help</button>
+                        <button id="btnRestart" class="btn btn-restart">Restart Game</button>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center Terminal Display Area -->
+            <main class="terminal-container">
+                <div class="terminal-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span class="terminal-title">mansion-console.sh</span>
+                </div>
+                <div id="terminal" class="terminal-body"></div>
+
+                <!-- Input Bar (South) -->
+                <form id="commandForm" class="command-bar">
+                    <span class="prompt-symbol">&gt;</span>
+                    <input type="text" id="commandInput" placeholder="Type a command (e.g. 'go west', 'take candle')..." autocomplete="off">
+                    <button type="submit" id="sendBtn" class="btn btn-send">Send</button>
+                </form>
+            </main>
+
+            <!-- Status & Inventory Sidebar (East) -->
+            <aside class="status-panel">
+                <div class="panel-section status-card">
+                    <h3>Status</h3>
+                    <div class="status-item">
+                        <span class="label">Location:</span>
+                        <span id="roomName" class="value badge-room">Hall</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="label">Moves Left:</span>
+                        <span id="movesLeft" class="value badge-moves">30</span>
+                    </div>
+                </div>
+
+                <div class="panel-section inventory-card">
+                    <h3>Inventory</h3>
+                    <ul id="inventoryList" class="inventory-list">
+                        <li class="empty-inv">(Empty)</li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- Status Banner Modal for Game Over -->
+    <div id="bannerModal" class="modal hidden">
+        <div class="modal-content">
+            <h2 id="bannerTitle">GAME OVER</h2>
+            <p id="bannerMessage"></p>
+            <button id="modalRestartBtn" class="btn btn-restart">Play Again</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
